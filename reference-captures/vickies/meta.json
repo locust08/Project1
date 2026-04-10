@@ -1,0 +1,27 @@
+{
+  "title": "Vickies | Thibault Guignand",
+  "hrefs": [
+    {
+      "text": "Live",
+      "href": "https://www.vickies.fr/"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Back",
+      "aria": null
+    },
+    {
+      "text": "Scroll",
+      "aria": null
+    },
+    {
+      "text": "",
+      "aria": "Navigate to section"
+    },
+    {
+      "text": "0Next projectADN Family",
+      "aria": null
+    }
+  ]
+}

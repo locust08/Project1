@@ -1,0 +1,27 @@
+{
+  "title": "Atelier Stratus | Thibault Guignand",
+  "hrefs": [
+    {
+      "text": "Live",
+      "href": "https://www.stratus.fr/"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Back",
+      "aria": null
+    },
+    {
+      "text": "Scroll",
+      "aria": null
+    },
+    {
+      "text": "",
+      "aria": "Navigate to section"
+    },
+    {
+      "text": "0Next projectMetropole média",
+      "aria": null
+    }
+  ]
+}

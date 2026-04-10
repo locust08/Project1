@@ -1,0 +1,39 @@
+{
+  "title": "About | Thibault Guignand",
+  "hrefs": [
+    {
+      "text": "Emailbonjour@atypica.digital→",
+      "href": "mailto:bonjour@atypica.digital"
+    },
+    {
+      "text": "LinkedInLet's connect→",
+      "href": "https://www.linkedin.com/in/thibault-guignand-b9456b197"
+    },
+    {
+      "text": "GitHubPrivate code — let's talk→",
+      "href": "mailto:bonjour@atypica.digital?subject=GitHub"
+    },
+    {
+      "text": "Emailbonjour@atypica.digital→",
+      "href": "mailto:bonjour@atypica.digital"
+    },
+    {
+      "text": "LinkedInLet's connect→",
+      "href": "https://www.linkedin.com/in/thibault-guignand-b9456b197"
+    },
+    {
+      "text": "GitHubPrivate code — let's talk→",
+      "href": "mailto:bonjour@atypica.digital?subject=GitHub"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Back",
+      "aria": null
+    },
+    {
+      "text": "",
+      "aria": "Navigate to section"
+    }
+  ]
+}

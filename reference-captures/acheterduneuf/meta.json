@@ -1,0 +1,27 @@
+{
+  "title": "ACHETERduNEUF | Thibault Guignand",
+  "hrefs": [
+    {
+      "text": "Live",
+      "href": "https://acheterduneuf.com/"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Back",
+      "aria": null
+    },
+    {
+      "text": "Scroll",
+      "aria": null
+    },
+    {
+      "text": "",
+      "aria": "Navigate to section"
+    },
+    {
+      "text": "0Next projectVickies",
+      "aria": null
+    }
+  ]
+}

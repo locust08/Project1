@@ -1,0 +1,27 @@
+{
+  "title": "ADN Family | Thibault Guignand",
+  "hrefs": [
+    {
+      "text": "Live",
+      "href": "https://adnfamily.com/"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Back",
+      "aria": null
+    },
+    {
+      "text": "Scroll",
+      "aria": null
+    },
+    {
+      "text": "",
+      "aria": "Navigate to section"
+    },
+    {
+      "text": "0Next projectAtypica",
+      "aria": null
+    }
+  ]
+}

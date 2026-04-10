@@ -1,0 +1,42 @@
+{
+  "title": "Creative Frontend Developer | Thibault Guignand",
+  "hrefs": [],
+  "buttons": [
+    {
+      "text": "Discover my projects",
+      "aria": "Discover my projects"
+    },
+    {
+      "text": "1",
+      "aria": "View project: Stratus, Scenography Studio"
+    },
+    {
+      "text": "2",
+      "aria": "View project: Metropole, Advertising Network"
+    },
+    {
+      "text": "3",
+      "aria": "View project: ACHETERduNEUF, New Property Comparator"
+    },
+    {
+      "text": "4",
+      "aria": "View project: Vickies, Super Fresh Communication Agency"
+    },
+    {
+      "text": "5",
+      "aria": "View project: ADN Family, Metaverse Ecosystem"
+    },
+    {
+      "text": "6",
+      "aria": "View project: Atypica, Where Web Meets Originality"
+    },
+    {
+      "text": "",
+      "aria": "View project"
+    },
+    {
+      "text": "",
+      "aria": "About page"
+    }
+  ]
+}

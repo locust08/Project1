@@ -1,0 +1,27 @@
+{
+  "title": "Metropole média | Thibault Guignand",
+  "hrefs": [
+    {
+      "text": "Live",
+      "href": "https://www.metropole.media/"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Back",
+      "aria": null
+    },
+    {
+      "text": "Scroll",
+      "aria": null
+    },
+    {
+      "text": "",
+      "aria": "Navigate to section"
+    },
+    {
+      "text": "0Next projectACHETERduNEUF",
+      "aria": null
+    }
+  ]
+}

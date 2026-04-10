@@ -1,0 +1,74 @@
+[
+  {
+    "route": "/en",
+    "titleMatch": true,
+    "textMatch": false,
+    "localTitle": "Creative Frontend Developer | Thibault Guignand",
+    "referenceTitle": "Creative Frontend Developer | Thibault Guignand",
+    "localTextLength": 32,
+    "referenceTextLength": 185
+  },
+  {
+    "route": "/en/about",
+    "titleMatch": true,
+    "textMatch": false,
+    "localTitle": "About | Thibault Guignand",
+    "referenceTitle": "About | Thibault Guignand",
+    "localTextLength": 2466,
+    "referenceTextLength": 2465
+  },
+  {
+    "route": "/en/project/atelier-stratus",
+    "titleMatch": true,
+    "textMatch": true,
+    "localTitle": "Atelier Stratus | Thibault Guignand",
+    "referenceTitle": "Atelier Stratus | Thibault Guignand",
+    "localTextLength": 273,
+    "referenceTextLength": 273
+  },
+  {
+    "route": "/en/project/metropole",
+    "titleMatch": false,
+    "textMatch": false,
+    "localTitle": "Metropole média | Thibault Guignand",
+    "referenceTitle": "ACHETERduNEUF | Thibault Guignand",
+    "localTextLength": 372,
+    "referenceTextLength": 348
+  },
+  {
+    "route": "/en/project/acheterduneuf",
+    "titleMatch": true,
+    "textMatch": true,
+    "localTitle": "ACHETERduNEUF | Thibault Guignand",
+    "referenceTitle": "ACHETERduNEUF | Thibault Guignand",
+    "localTextLength": 348,
+    "referenceTextLength": 348
+  },
+  {
+    "route": "/en/project/vickies",
+    "titleMatch": true,
+    "textMatch": true,
+    "localTitle": "Vickies | Thibault Guignand",
+    "referenceTitle": "Vickies | Thibault Guignand",
+    "localTextLength": 293,
+    "referenceTextLength": 293
+  },
+  {
+    "route": "/en/project/adn-family",
+    "titleMatch": true,
+    "textMatch": true,
+    "localTitle": "Atypica | Thibault Guignand",
+    "referenceTitle": "Atypica | Thibault Guignand",
+    "localTextLength": 240,
+    "referenceTextLength": 240
+  },
+  {
+    "route": "/en/project/atypica",
+    "titleMatch": false,
+    "textMatch": false,
+    "localTitle": "Atelier Stratus | Thibault Guignand",
+    "referenceTitle": "Atypica | Thibault Guignand",
+    "localTextLength": 273,
+    "referenceTextLength": 240
+  }
+]
