@@ -1,11 +1,11 @@
-import { HomeLanding } from "../_components/home-landing";
+import { PortfolioShell } from "../_components/portfolio-shell";
 
 export default async function LangHomePage({
   params,
 }: {
   params: Promise<{ lang: string }>;
 }) {
-  const { lang } = await params;
+  await params;
 
-  return <HomeLanding lang={lang} />;
+  return <PortfolioShell />;
 }

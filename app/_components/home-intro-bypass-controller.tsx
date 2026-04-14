@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 const DISCOVER_SELECTOR = ".discover-text.clickable";
 const INTRO_SELECTOR = ".intro-text.welcome-text";
-const SESSION_FLAG = "codex-home-intro-bypassed";
+const PROJECT_GRID_SELECTOR = ".rectangle-item";
 
 function isHomePath(pathname: string) {
   const segments = pathname.split("/").filter(Boolean);
@@ -13,20 +13,40 @@ function isHomePath(pathname: string) {
   return segments.length <= 1;
 }
 
-function triggerDiscoverCta() {
+function revealScrambleText(root: ParentNode) {
+  root.querySelectorAll<HTMLElement>(".scramble-text").forEach((node) => {
+    if (node.dataset.text && !node.textContent) {
+      node.textContent = node.dataset.text;
+    }
+
+    node.style.visibility = "visible";
+    node.style.opacity = "1";
+    node.style.clipPath = "";
+  });
+}
+
+function stabilizeIntroUi() {
+  let changed = false;
+
+  const intro = document.querySelector<HTMLElement>(INTRO_SELECTOR);
+  if (intro) {
+    intro.style.visibility = "visible";
+    intro.style.opacity = "1";
+    revealScrambleText(intro);
+    changed = true;
+  }
+
   const discover = document.querySelector<HTMLElement>(DISCOVER_SELECTOR);
-
-  if (!discover) {
-    return false;
+  if (discover) {
+    discover.style.visibility = "visible";
+    discover.style.opacity = "1";
+    discover.style.pointerEvents = "auto";
+    discover.style.clipPath = "";
+    revealScrambleText(discover);
+    changed = true;
   }
 
-  if (sessionStorage.getItem(SESSION_FLAG) === "true") {
-    return true;
-  }
-
-  discover.click();
-  sessionStorage.setItem(SESSION_FLAG, "true");
-  return true;
+  return changed;
 }
 
 export function HomeIntroBypassController() {
@@ -40,19 +60,26 @@ export function HomeIntroBypassController() {
     let intervalId: number | null = null;
     let timeoutId: number | null = null;
 
-    const tryBypass = () => {
-      const hasIntro = Boolean(document.querySelector(INTRO_SELECTOR));
+    const stabilize = () => {
+      const hasProjectGrid = Boolean(document.querySelector(PROJECT_GRID_SELECTOR));
 
-      if (!hasIntro) {
-        return false;
+      if (hasProjectGrid) {
+        if (intervalId) {
+          window.clearInterval(intervalId);
+          intervalId = null;
+        }
+
+        return true;
       }
 
-      return triggerDiscoverCta();
+      return stabilizeIntroUi();
     };
 
-    if (!tryBypass()) {
+    stabilize();
+
+    if (!document.querySelector(PROJECT_GRID_SELECTOR)) {
       intervalId = window.setInterval(() => {
-        if (tryBypass() && intervalId) {
+        if (stabilize() && intervalId && document.querySelector(PROJECT_GRID_SELECTOR)) {
           window.clearInterval(intervalId);
           intervalId = null;
         }
