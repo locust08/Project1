@@ -1,5 +1,6 @@
 import Script from "next/script";
 import { FireplaceAudioController } from "./fireplace-audio-controller";
+import { HomeIntroBypassController } from "./home-intro-bypass-controller";
 import { HomeTextOverridesController } from "./home-text-overrides-controller";
 import { ProjectGalleryVideoController } from "./project-gallery-video-controller";
 import { ProjectTextOverridesController } from "./project-text-overrides-controller";
@@ -8,6 +9,7 @@ export function PortfolioShell() {
   return (
     <>
       <FireplaceAudioController />
+      <HomeIntroBypassController />
       <HomeTextOverridesController />
       <ProjectGalleryVideoController />
       <ProjectTextOverridesController />
