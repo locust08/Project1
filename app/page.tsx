@@ -1,5 +1,5 @@
-import { PortfolioShell } from "./_components/portfolio-shell";
+import { HomeLanding } from "./_components/home-landing";
 
 export default function HomePage() {
-  return <PortfolioShell />;
+  return <HomeLanding />;
 }
