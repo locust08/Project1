@@ -35,3 +35,8 @@ body {
   object-fit: contain;
   background: #fff;
 }
+
+.project-hero__metric,
+.project-info__metric {
+  display: none !important;
+}

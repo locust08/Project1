@@ -15,9 +15,6 @@ const PLAYBACK_RETRY_EVENTS: Array<keyof DocumentEventMap> = [
   "touchstart",
 ];
 const PLAYBACK_VISIBILITY_THRESHOLD = 0.6;
-const PROJECT_GALLERY_REMOVALS: Record<string, number[]> = {
-  atypica: [4],
-};
 
 const PROJECT_GALLERY_VIDEOS: Record<string, VideoConfig[]> = {
   "atelier-stratus": [
@@ -103,9 +100,7 @@ export function ProjectGalleryVideoController() {
     }
 
     const videoConfigs = PROJECT_GALLERY_VIDEOS[slug] ?? [];
-    const removalSlots = PROJECT_GALLERY_REMOVALS[slug] ?? [];
-
-    if (!videoConfigs.length && !removalSlots.length) {
+    if (!videoConfigs.length) {
       return;
     }
 
@@ -113,10 +108,22 @@ export function ProjectGalleryVideoController() {
     const initializedVideos = new WeakSet<HTMLVideoElement>();
     const retryCleanupByVideo = new Map<HTMLVideoElement, () => void>();
     const cleanupByVideo = new Map<HTMLVideoElement, () => void>();
-    const getManagedGalleryItems = () => {
-      const galleryItems = Array.from(
-        document.querySelectorAll<HTMLElement>(".project-gallery__item"),
+    const getPrimaryGalleryItems = () => {
+      const primaryGallery = document.querySelector<HTMLElement>(
+        ".project-content__wrapper > .project-gallery",
       );
+
+      if (!primaryGallery) {
+        return [];
+      }
+
+      return Array.from(
+        primaryGallery.querySelectorAll<HTMLElement>(".project-gallery__item"),
+      );
+    };
+
+    const getManagedGalleryItems = () => {
+      const galleryItems = getPrimaryGalleryItems();
 
       return videoConfigs
         .map((config) => galleryItems[config.slot])
@@ -310,33 +317,16 @@ export function ProjectGalleryVideoController() {
     };
 
     const applyVideoReplacements = () => {
-      const galleryItems = Array.from(
-        document.querySelectorAll<HTMLElement>(".project-gallery__item"),
-      );
+      const galleryItems = getPrimaryGalleryItems();
 
       if (!galleryItems.length) {
         return false;
       }
 
-      let replacedAny = false;
+      const hasAllVideoTargets = videoConfigs.every((config) => galleryItems[config.slot]);
 
-      for (const slot of removalSlots) {
-        const item = galleryItems[slot];
-
-        if (!item) {
-          continue;
-        }
-
-        const currentVideo =
-          item.querySelector<HTMLVideoElement>(".project-gallery__video");
-
-        if (currentVideo) {
-          cleanupByVideo.get(currentVideo)?.();
-          cleanupByVideo.delete(currentVideo);
-        }
-
-        item.remove();
-        replacedAny = true;
+      if (!hasAllVideoTargets) {
+        return false;
       }
 
       for (const config of videoConfigs) {
@@ -363,27 +353,37 @@ export function ProjectGalleryVideoController() {
         }
 
         registerGalleryItem(item);
-        replacedAny = true;
       }
 
       updateActivePlayback();
-      return replacedAny;
+      return true;
     };
 
+    let timeoutId: number | null = null;
     const observer = new MutationObserver(() => {
-      applyVideoReplacements();
+      if (applyVideoReplacements()) {
+        observer.disconnect();
+      }
     });
 
-    applyVideoReplacements();
+    if (!applyVideoReplacements()) {
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+      });
 
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
+      timeoutId = window.setTimeout(() => {
+        observer.disconnect();
+      }, 5000);
+    }
 
     return () => {
       observer.disconnect();
       visibilityObserver.disconnect();
+
+      if (timeoutId) {
+        window.clearTimeout(timeoutId);
+      }
 
       for (const cleanup of cleanupByVideo.values()) {
         cleanup();
